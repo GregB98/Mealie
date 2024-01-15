@@ -25,7 +25,7 @@ services:
       - SMTP_FROM_NAME=XXXXXXXXXXXX
       - SMTP_USER=XXXXXXXXXXXX@gmail.com
       - SMTP_PASSWORD=XXXXXXXXXXXX
-      - SMTP_AUTH_STRATEGY=TL
+      - SMTP_AUTH_STRATEGY=TLS
 
     restart: always
 
