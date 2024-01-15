@@ -1,2 +1,2 @@
 # Mealie
-Food
+Docker Compose of my mealie instance
