@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC2
+    container_name: mealie
+    ports:
+        - "9925:9000" #
+    deploy:
+      resources:
+        limits:
+          memory: 1000M #
+    volumes:
+      - mealie-data:/app/data/
+    environment:
+    # Set Backend ENV Variables Here
+      - ALLOW_SIGNUP=true
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Budapest
+      - MAX_WORKERS=1
+      - WEB_CONCURRENCY=1
+      - BASE_URL=https://recipes.ogrenet.com
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_FROM_EMAIL=XXXXXXXXXXXX
+      - SMTP_FROM_NAME=XXXXXXXXXXXX
+      - SMTP_USER=XXXXXXXXXXXX@gmail.com
+      - SMTP_PASSWORD=XXXXXXXXXXXX
+      - SMTP_AUTH_STRATEGY=TL
+
+    restart: always
+
+volumes:
+  mealie-data:
+    driver: local
+~                
